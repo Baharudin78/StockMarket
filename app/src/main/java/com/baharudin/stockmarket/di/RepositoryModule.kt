@@ -2,8 +2,10 @@ package com.baharudin.stockmarket.di
 
 import com.baharudin.stockmarket.data.csv.CompanyListingParser
 import com.baharudin.stockmarket.data.csv.CsvParser
+import com.baharudin.stockmarket.data.csv.InfradayInfoParser
 import com.baharudin.stockmarket.data.repository.StockRepositoryImpl
 import com.baharudin.stockmarket.domain.model.CompanyListing
+import com.baharudin.stockmarket.domain.model.InfradayInfo
 import com.baharudin.stockmarket.domain.repository.StockRepository
 import dagger.Binds
 import dagger.Module
@@ -20,6 +22,12 @@ abstract class RepositoryModule {
     abstract fun bindsCompanyListingParser(
         companyListingParser: CompanyListingParser
     ) : CsvParser<CompanyListing>
+
+    @Binds
+    @Singleton
+    abstract fun bindsInfradayInfoParser(
+        infradayInfoParser : InfradayInfoParser
+    ) : CsvParser<InfradayInfo>
 
     @Binds
     @Singleton
